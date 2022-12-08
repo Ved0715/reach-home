@@ -1,0 +1,543 @@
+@import 'https://fonts.googleapis.com/css?family=Lato|Open+Sans|Roboto';
+@import 'https://fonts.googleapis.com/css?family=Lato';
+body {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+
+/**** To set Master Head background ***/
+
+.masthead {
+    position: relative;
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/839693/essential-grid-wp-plugin.jpg') center center no-repeat scroll;
+    background-size: cover;
+    padding: 0 5% 180px;
+}
+
+
+/**** To set Master Head Overlay ***/
+
+.masthead:before {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 52, 100, 0.9);
+    z-index: 0;
+}
+
+.masthead__content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+.masthead__intro {
+    font-family: Open Sans;
+    margin: 100px 0 0;
+    font-size: 30px;
+}
+
+.masthead__heading {
+    font-family: Open Sans;
+    margin: 0;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.masthead__intro-highlight {
+    font-size: 2em;
+}
+
+.masthead__tagline {
+    font-family: Open Sans;
+    font-size: 20px;
+}
+
+.masthead__intro strong {
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    font-stretch: normal;
+    text-align: center;
+}
+
+.masthead__highlight {
+    color: #00b9f7;
+}
+
+.masthead__icon {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/839693/play-button%402x.png');
+    background-size: contain;
+    margin-top: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.masthead__button {
+    margin-top: 80px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.demo {
+    margin-bottom: 60px;
+}
+
+.header {
+    padding: 52px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.logo {
+    width: 148px;
+    height: auto;
+    margin-top: -13px;
+    float: left;
+}
+
+.nav {
+    width: 60%;
+    padding: 0;
+    margin: auto;
+    text-align: center;
+    list-style: none;
+}
+
+.nav__item {
+    display: inline-block;
+}
+
+.nav_style {
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    font-family: Lato;
+    font-size: x-small;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+}
+
+.nav__item_active {
+    font-family: Lato;
+    font-size: small;
+    font-weight: bold;
+    color: #00b9f7;
+}
+
+.nav__item_active,
+.masthead__title__highlight {
+    color: #00b9f7;
+}
+
+.header__button {
+    float: right;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 10px 15px;
+    border-radius: 2px;
+    margin-top: -10px;
+    font-family: Lato;
+    font-size: x-small;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+}
+
+.masthead__button {
+    padding: 40px 40px;
+}
+
+.masthead__icon {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75em;
+}
+
+
+/* <start> Features Details */
+
+.description {
+    position: relative;
+    width: 80%;
+    margin: -120px auto;
+    background: #fff;
+    box-shadow: 0 12px 42px 12px rgba(0, 0, 0, 0.08);
+    /*  z-index: 2;*/
+}
+
+.font-desc {
+    font-size: 10px;
+    font-weight: light;
+}
+
+.desc_list {
+    margin: 0;
+    padding: 0;
+}
+
+.desc_list h2 {
+    font-family: Roboto;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.desc_item {
+    list-style: none;
+    text-align: center;
+    border: solid 1px #e5e5e5;
+    padding: 40px 20px;
+    height: 250px;
+    font-size: 87%;
+    font-family: Roboto;
+    font-weight: 100;
+    float: left;
+}
+
+.column {
+    width: 33.3333333%;
+    ;
+}
+
+
+/* <end> Features Details */
+
+
+/* <start> Revolutionary Details */
+
+.another_desc h1 {
+    color: #152844;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    background-color: #fcfcfc;
+}
+
+.another_desc {
+    margin-top: 200px;
+    text-align: center;
+    font-weight: normal;
+    color: #152844;
+}
+
+.another_title {
+    color: #152844;
+    font-size: 28px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+}
+
+.another_detail {
+    font-size: 10px;
+    font-weight: 100;
+    color: #6091a6;
+}
+
+
+/* <end> Revolutionary Details */
+
+
+/* <start> Modular List Images Details */
+
+.modularlist {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+}
+
+.improvements {
+    width: 180px;
+    height: auto;
+    margin-left: 200px;
+    margin-top: 20px;
+    float: left;
+}
+
+.speed_title {
+    width: 170px;
+    height: 50px;
+    font-size: 1em;
+    text-align: center;
+    color: #2f5f7b;
+    padding: 10px 5px;
+    margin: 0;
+}
+
+.improvement-list {
+    width: 50%;
+    margin: 5px 0px;
+    float: left;
+}
+
+.admin_img {
+    width: 65%;
+    margin-left: 10px;
+    margin-top: -20px;
+    float: right;
+}
+
+
+/* <end> Modular List Images Details */
+
+
+/*<start> Best Page Builder Details */
+
+.addtnl_desc {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.addtnl_txt {
+    font-weight: normal;
+    font-size: 30px;
+}
+
+.addtnl_txt,
+.add_det {
+    text-align: center;
+}
+
+.add_det {
+    font-size: 10px;
+    font-weight: 100;
+    color: #6091a6;
+}
+
+.adddesc_highlight {
+    color: orange;
+}
+
+
+/* <end> Best Page Builder Details */
+
+
+/*<start> Why Everyone */
+
+.smallbox {
+    position: relative;
+    /*note: this make z-index works*/
+    text-align: center;
+    width: 50%;
+    height: 70%;
+    margin: 50px auto;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 12px 42px 12px rgba(0, 0, 0, 0.08);
+    z-index: 4;
+}
+
+.logo_img {
+    text-align: center;
+    margin: 30px 10px 10px 0;
+    height: 50px;
+}
+
+.desc_list1 {
+    width: 100%;
+}
+
+.desc_item1 {
+    list-style: none;
+    text-align: center;
+    width: 85px;
+    margin: 20px 25px;
+    font-style: italic;
+    font-size: 0.75em;
+    float: left;
+}
+
+.font_desc1 {
+    font-size: 10px;
+    font-weight: light;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.font_desc2 {
+    font-size: 10px;
+    font-weight: light;
+    padding: 5px;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.font_blue {
+    background-color: #00b0f4;
+}
+
+.font_green {
+    background-color: #00ff00;
+}
+
+.font_orange {
+    background-color: #ffb500;
+}
+
+.why_everyone {
+    font-size: 20px;
+    font-family: "Roboto";
+    font-weight: 100;
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.below {
+    width: 100%;
+    height: auto;
+    margin-left: 80px;
+}
+
+.desc_item2 {
+    list-style: none;
+    width: 100px;
+    margin: -10px 10px;
+    height: auto;
+    padding: 5px;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 0.6em;
+    text-align: center;
+    text-transform: none;
+    float: left;
+}
+
+.addtnl_footer {
+    width: 100%;
+    margin-top: 30px;
+    font-size: 10px;
+    font-weight: 100;
+    font-style: italic;
+    font-stretch: normal;
+    text-align: center;
+    color: #9b9b9b;
+    text-align: center;
+}
+
+
+/*<end> Why Everyone */
+
+
+/* for the blue box at the bottom*/
+
+.footer {
+    width: 100%;
+    height: 150px;
+    background: #203c65;
+    margin-top: -100px;
+    padding: 0;
+}
+
+
+/* Media Queries
+================================ */
+
+@media (max-width: 960px) {
+    h1 {
+        font-size: 5.9vw;
+    }
+    p {
+        font-size: 1.5vw;
+    }
+    .masthead__content,
+    .nav li {
+        font-size: 0.5vw;
+    }
+    .header__button {
+        font-size: 1vw;
+    }
+    .header {
+        padding: 5%;
+    }
+    .masthead__play {
+        width: 10%;
+    }
+    .masthead {
+        padding: 0 0 140px;
+    }
+    .description {
+        width: 100%;
+    }
+    .improvements {
+        width: 60%;
+        margin-left: 20%;
+    }
+    .improvement-list {
+        width: 10%;
+        float: left;
+        margin: 10px 5px;
+    }
+    .admin_img {
+        width: 80%;
+        margin-right: 10%;
+    }
+    .smallbox {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo,
+    .header__button {
+        float: none;
+        margin: 10px auto;
+        display: block;
+    }
+    .desc_item {
+        width: 50%;
+    }
+    .desc_item1 {
+        width: 44%;
+        margin: 2%;
+    }
+    .desc_item1:nth-child(3) {
+        clear: both;
+    }
+}
+
+@media (max-width: 480px) {
+    .masthead {
+        padding: 0 0 100px;
+    }
+    .header__button {
+        width: 50%;
+    }
+    .desc_item {
+        width: 100%;
+    }
+    .improvement-list {
+        max-width: 20%;
+        float: left;
+    }
+    .why_everyone {
+        margin-left: 30%;
+    }
+    .desc_item2 {
+        max-width: 30%;
+        float: none;
+        margin: 20px 0;
+    }
+    .img {
+        size: 50px;
+    }
+}

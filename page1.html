@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Cource Page</title>
+    <link rel="stylesheet" href="page1.css">
+    <script>
+        const buttons = document.querySelectorAll(" .continue-btn ");
+        const overlay = document.querySelector(".overlay ");
+        const msg = document.querySelector(".overlay-message ");
+        const main = document.querySelector(".main-section ");
+        const htmlCourse = document.querySelector(".html-course ");
+        const cssCourse = document.querySelector(".css-course ");
+        const jsCourse = document.querySelector(".js-course ");
+        const backBtns = document.querySelectorAll(".back ");
+        const courses = document.querySelectorAll(".course-section ");
+        const modeBtn = document.querySelector(".mode-switch ");
+        const r = document.querySelector(":root ");
+        const markBtns = document.querySelectorAll(".mark ");
+        let mode = "light ";
+
+        const htmlCourses = document.querySelectorAll(".course.html ");
+        const cssCourses = document.querySelectorAll(".course.css ");
+        const jsCourses = document.querySelectorAll(".course.js ");
+
+        const allCourses = [htmlCourses, cssCourses, jsCourses];
+
+        const progressBars = document.querySelectorAll(".progress-bar span ");
+        const progressText = document.querySelectorAll(".progress-text ");
+
+        const updateCourses = () => {
+            for (let i = 0; i < progressBars.length; i++) {
+                const course = allCourses[i];
+                const length = course.length - 1;
+                let completed = 0;
+                for (let j = 0; j < course.length; j++) {
+                    if (course[j].classList[2]) {
+                        completed += 1;
+                    }
+                }
+                S
+                progressText[i].innerText = `${completed}/${length} Lessons Completed`;
+                progressBars[i].style.width = (completed / length) * 200 + "px ";
+            }
+        };
+
+        updateCourses();
+
+        const showCourse = (course) => {
+            course.style.transform = "translateX(0px) ";
+            course.style.display = "block ";
+        };
+
+        const hideCourse = (course) => {
+            course.style.transform = "translateX(150%) ";
+            course.style.display = "none ";
+        };
+
+        modeBtn.addEventListener("click ", () => {
+            if (mode === "light ") {
+                mode = "dark ";
+                modeBtn.classList.remove("fa-moon ");
+                modeBtn.classList.add("fa-sun ");
+                r.style.setProperty("--mode-hover ", "#ead94c ");
+                r.style.setProperty("--header ", "#121212 ");
+                r.style.setProperty("--bg ", "#1c1c1c ");
+                r.style.setProperty("--text ", "#ffffff ");
+                r.style.setProperty("--dark-grey ", "rgba(255, 255, 255, 0.7) ");
+            } else {
+                mode = "light ";
+                modeBtn.classList.remove("fa-sun ");
+                modeBtn.classList.add("fa-moon ");
+                r.style.setProperty("--mode-hover ", "#203297 ");
+                r.style.setProperty("--header ", "#dbdbdb ");
+                r.style.setProperty("--bg ", "#f0f0f0 ");
+                r.style.setProperty("--text ", "#050505 ");
+                r.style.setProperty("--dark-grey ", "rgba(5, 5, 5, 0.7) ");
+            }
+        });
+
+        for (let btn of buttons) {
+            let courseToShow = btn.classList[1];
+            switch (courseToShow) {
+                case "html ":
+                    courseToShow = htmlCourse;
+                    break;
+                case "css ":
+                    courseToShow = cssCourse;
+                    break;
+                case "js ":
+                    courseToShow = jsCourse;
+                    break;
+            }
+            btn.addEventListener("click ", () => {
+                overlay.style.transformOrigin = "right ";
+                overlay.style.transform = "scaleX(1) ";
+                msg.innerText = "Loading Course... ";
+                setTimeout(() => {
+                    msg.style.opacity = 1;
+                    hideCourse(main);
+                }, 500);
+                setTimeout(() => {
+                    msg.style.opacity = 0;
+                    showCourse(courseToShow);
+                }, 2500);
+                setTimeout(() => {
+                    overlay.style.transformOrigin = "left ";
+                    overlay.style.transform = "scaleX(0) ";
+                }, 3000);
+            });
+        }
+
+        for (let btn of backBtns) {
+            btn.addEventListener("click ", () => {
+                overlay.style.transformOrigin = "right ";
+                overlay.style.transform = "scaleX(1) ";
+                msg.innerText = "Loading Courses... ";
+                setTimeout(() => {
+                    msg.style.opacity = 1;
+                    for (let course of courses) {
+                        hideCourse(course);
+                    }
+                }, 500);
+                setTimeout(() => {
+                    msg.style.opacity = 0;
+                    showCourse(main);
+                }, 2500);
+                setTimeout(() => {
+                    overlay.style.transformOrigin = "left ";
+                    overlay.style.transform = "scaleX(0) ";
+                }, 3000);
+            });
+        }
+
+        for (let btn of markBtns) {
+            btn.addEventListener("click ", () => {
+                const parentLesson = btn.parentElement.parentElement;
+                const checked = parentLesson.classList[2] ? true : false;
+                if (checked) {
+                    parentLesson.classList.remove("checked ");
+                    btn.innerText = "Mark as Done ";
+                } else {
+                    parentLesson.classList.add("checked ");
+                    btn.innerText = "Mark as Incomplete ";
+                }
+                updateCourses();
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+
+
+
+
+
+
+    <section class=" main-section ">
+        <div class="course-header ">
+            <div class="browser-frame">
+                <div class="browser-controls">
+
+                    <div class="window-controls">
+                        <span class="close"></span>
+                        <span class="minimise"></span>
+                        <span class="maximise"></span>
+                    </div>
+
+                    <div class="page-controls">
+                        <span class="back white-container"></span>
+                        <span class="next white-container"></span>
+                    </div>
+
+                    <span class="url-bar white-container">
+          Title of image
+          </span>
+
+                    <span class="full-screen white-container"></span>
+
+                </div>
+                <img src="http://placehold.it/1000x700px" />
+            </div>
+            <i class="mode-switch fas fa-moon "></i>
+            <h1>Your Courses</h1>
+        </div>
+        <div class="courses ">
+            <div class="course html " tabindex="1 ">
+                <div class="course-info ">
+                    <span>Course</span>
+                    <h5>Basic HTML</h5>
+                    <a href="code.html" tabindex="2 ">Chapters <i class="fas fa-chevron-right "></i></a>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Chapter 14</h5>
+                        <div class="progress ">
+                            <span class="progress-bar "><span></span></span>
+                            <span class="progress-text ">2/10 Lessons Completed</span>
+                        </div>
+                    </div>
+                    <h2 class="name ">Uses for semantics</h2>
+                    <a class="chapters " href="code.html" tabindex="3 ">Chapters <i class="fas fa-chevron-right "></i></a>
+                    <a class="continue-btn html " tabindex="4 " href="code.html ">Continue</a>
+                </div>
+            </div>
+            <div class="course css " tabindex="5 ">
+                <div class="course-info ">
+                    <span>Course</span>
+                    <h5>Basic CSS</h5>
+                    <a href="code.html " tabindex="6 ">Chapters <i class="fas fa-chevron-right "></i></a>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Chapter 4</h5>
+                        <div class="progress ">
+                            <span class="progress-bar "><span></span></span>
+                            <span class="progress-text ">9/10 Lessons Completed</span>
+                        </div>
+                    </div>
+                    <h2 class="name ">Adjacent Selectors</h2>
+                    <a class="chapters " href="code.html " tabindex="7 ">Chapters <i class="fas fa-chevron-right "></i></a>
+                    <a class="continue-btn css " tabindex="8 " href="#code.html">Continue</a>
+                </div>
+            </div>
+            <div class="course js " tabindex="9 ">
+                <div class="course-info ">
+                    <span>Course</span>
+                    <h5>Basic ES6</h5>
+                    <a href="code.html">Chapters <i class="fas fa-chevron-right "></i></a>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Chapter 9</h5>
+                        <div class="progress ">
+                            <span class="progress-bar "><span></span></span>
+                            <span class="progress-text ">4/10 Lessons Completed</span>
+                        </div>
+                    </div>
+                    <h2 class="name ">Getters and Setters</h2>
+                    <a class="chapters " href="code.html" tabindex="10 ">Chapters <i class="fas fa-chevron-right "></i></a>
+                    <a class="continue-btn js " tabindex="11 " href="# ">Continue</a>
+                </div>
+            </div>
+        </div>
+        <div class="note ">
+            Be sure to click all the buttons. They actually work!
+        </div>
+        <div class="reference ">
+            Card design inspired by Florin Pop's <a href="https://codepen.io/FlorinPop17/full/dyPvNKK " target="_blank ">Course Card UI Design</a>
+        </div>
+    </section>
+    <section class="html-course course-section ">
+        <a class="back "><i class="fas fa-chevron-left "></i> Back to Courses</a>
+        <div class="courses ">
+            <div class="course html checked " tabindex="1 ">
+                <div class="course-info ">
+                    <span>Lesson</span>
+                    <h5>Intro to Semantic HTML</h5>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Lesson 1</h5>
+                        <span class="time ">4 min.</span>
+                    </div>
+                    <p class="description ">You have completed this lesson.</p>
+                    <button class="read-btn mark " tabindex="2 ">Mark as Incomplete</button>
+                    <a href="code.html" class="read-btn " tabindex="3 ">Read</a>
+                </div>
+            </div>
+            <div class="course html checked " tabindex="4 ">
+                <div class="course-info ">
+                    <span>Lesson</span>
+                    <h5>More on semantics</h5>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Lesson 2</h5>
+                        <span class="time ">4 min.</span>
+                    </div>
+                    <p class="description ">You have completed this lesson.</p>
+                    <button class="read-btn mark " tabindex="5 ">Mark as Incomplete</button>
+                    <a href="code.html" class="read-btn " tabindex="6 ">Read</a>
+                </div>
+            </div>
+            <div class="course html " tabindex="7 ">
+                <div class="course-info ">
+                    <span>Lesson</span>
+                    <h5>Uses for semantics</h5>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Lesson 3</h5>
+                        <span class="time ">4 min.</span>
+                    </div>
+                    <p class="description ">You have not completed this lesson yet.</p>
+                    <button class="read-btn mark " tabindex="8 ">Mark as Done</button>
+                    <a href="code.html" class="read-btn " tabindex="9 ">Read</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="css-course course-section ">
+        <a class="back "><i class="fas fa-chevron-left "></i> Back to Courses</a>
+        <div class="courses ">
+            <div class="course css checked " tabindex="1 ">
+                <div class="course-info ">
+                    <span>Lesson</span>
+                    <h5>Special Selectors</h5>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Lesson 1</h5>
+                        <span class="time ">5 min.</span>
+                    </div>
+                    <p class="description ">You have completed this lesson.</p>
+                    <button class="read-btn mark " tabindex="2 ">Mark as Incomplete</button>
+                    <a href="code.html" class="read-btn " tabindex="3 ">Read</a>
+                </div>
+            </div>
+            <div class="course css checked " tabindex="4 ">
+                <div class="course-info ">
+                    <span>Lesson</span>
+                    <h5>Sibling Selectors</h5>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Lesson 2</h5>
+                        <span class="time ">4 min.</span>
+                    </div>
+                    <p class="description ">You have completed this lesson.</p>
+                    <button class="read-btn mark " tabindex="5 ">Mark as Incomplete</button>
+                    <a href="code.html" class="read-btn " tabindex="6 ">Read</a>
+                </div>
+            </div>
+            <div class="course css " tabindex="7 ">
+                <div class="course-info ">
+                    <span>Lesson</span>
+                    <h5>Adjacent Selectors</h5>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Lesson 3</h5>
+                        <span class="time ">6 min.</span>
+                    </div>
+                    <p class="description ">You have not completed this lesson yet.</p>
+                    <button class="read-btn mark " tabindex="8 ">Mark as Done</button>
+                    <a href="code.html" class="read-btn " tabindex="9 ">Read</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="js-course course-section ">
+        <a class="back "><i class="fas fa-chevron-left "></i> Back to Courses</a>
+        <div class="courses ">
+            <div class="course js checked " tabindex="1 ">
+                <div class="course-info ">
+                    <span>Lesson</span>
+                    <h5>Destructuring</h5>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Lesson 1</h5>
+                        <span class="time ">4 min.</span>
+                    </div>
+                    <p class="description ">You have completed this lesson.</p>
+                    <button class="read-btn mark " tabindex="2 ">Mark as Incomplete</button>
+                    <a href="code.html" class="read-btn " tabindex="3 ">Read</a>
+                </div>
+            </div>
+            <div class="course js checked " tabindex="4 ">
+                <div class="course-info ">
+                    <span>Lesson</span>
+                    <h5>Template Literals</h5>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Lesson 2</h5>
+                        <span class="time ">4 min.</span>
+                    </div>
+                    <p class="description ">You have completed this lesson.</p>
+                    <button class="read-btn mark " tabindex="5 ">Mark as Incomplete</button>
+                    <a href="code.html" class="read-btn " tabindex="6 ">Read</a>
+                </div>
+            </div>
+            <div class="course js " tabindex="7 ">
+                <div class="course-info ">
+                    <span>Lesson</span>
+                    <h5>Getters and Setters</h5>
+                </div>
+                <div class="course-more ">
+                    <div class="details ">
+                        <h5>Lesson 3</h5>
+                        <span class="time ">4 min.</span>
+                    </div>
+                    <p class="description ">You have not completed this lesson yet.</p>
+                    <button class="read-btn mark " tabindex="8 ">Mark as Done</button>
+                    <a href="code.html" class="read-btn " tabindex="9 ">Read</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Course Section Template -->
+    <!-- <section class="INSERT COURSE NAME-course course-section ">
+        <a class="back "><i class="fas fa-chevron-left "></i> Back to Home</a>
+        <div class="courses "></div>
+      </section> -->
+    <div class="overlay ">
+        <p class="overlay-message "></p>
+    </div>
+</body>
+
+</html>
